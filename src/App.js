@@ -25,7 +25,6 @@ function App() {
       if (item.index === index) {
         const oldCount = item.count
         duplicateItem = true;
-        console.log("Duplicate found!");
         return {...item, count: oldCount + 1}
       }
 
@@ -43,17 +42,22 @@ function App() {
 
   return (
     <div className="App">
+      <div className="LeftContainer">
       <h1>Andres' Bakery</h1> 
-      {bakeryData.map((item, index) => ( 
+      <div className="BakeryItemsContainer">
+      {bakeryData.map((item, index) => (
+        <div className="BakeryItem">
         <BakeryItem item={item} index={index} addItem={addItem} key={index}/>
+        </div>
       ))}
- 
-      <div>
-        <h2>Cart</h2>
+      </div>
+      </div>
+      <div className="RightContainer">
+        <h2>My Cart</h2>
+        <h2> Total Price: ${totalPrice.toFixed(2)}</h2>
         {cart.map((item) => (
           <h3> {item.count}x {item.name}</h3>
         ))}
-        <h2> Total Price: ${totalPrice.toFixed(2)}</h2>
       </div>
     </div>
   );

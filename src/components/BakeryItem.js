@@ -4,7 +4,7 @@ function BakeryItem(props) {
 
   return (
     <div>
-      <img src={image} alt={`${name}`} width={400} height={300} /> 
+      <img src={image} alt={`${name}`} width={300} height={200} /> 
       <h2> {name} </h2>
       <h3> {description} </h3>
       <h3> ${price} </h3>
