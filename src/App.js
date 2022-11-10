@@ -13,13 +13,33 @@ function App() {
   // TODO: use useState to create a state variable to hold the state of the cart
   /* add your cart state code here */
 
-  // const [cart, setCart] = useState({});
-
+  const [cart, setCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const addItem = useCallback((index, item) => {
-    console.log(index)
-    console.log(item.name)
-  }, [])
+    const newItem = {index: index, name: item.name, price: item.price, count: 1}
+    let duplicateItem = false;
+    const newCart = cart.map(item => {
+
+
+      if (item.index === index) {
+        const oldCount = item.count
+        duplicateItem = true;
+        console.log("Duplicate found!");
+        return {...item, count: oldCount + 1}
+      }
+
+      return item
+    })
+
+    if (!duplicateItem) {
+      setCart([...cart, newItem])
+    } else {
+      setCart(newCart)
+    }
+
+    setTotalPrice(totalPrice + item.price)
+  }, [cart, totalPrice])
 
   return (
     <div className="App">
@@ -30,8 +50,10 @@ function App() {
  
       <div>
         <h2>Cart</h2>
-        {/* TODO: render a list of items in the cart */}
-        <h2> Total Price: $</h2>
+        {cart.map((item) => (
+          <h3> {item.count}x {item.name}</h3>
+        ))}
+        <h2> Total Price: ${totalPrice.toFixed(2)}</h2>
       </div>
     </div>
   );
