@@ -10,8 +10,6 @@ bakeryData.forEach((item) => {
 /* ############################################################## */
 
 function App() {
-  // TODO: use useState to create a state variable to hold the state of the cart
-  /* add your cart state code here */
 
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
