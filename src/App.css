@@ -11,7 +11,7 @@
 }
 
 .BakeryItem {
-    background-color: #add8e6;
+    background-color: #bcd4db;
     display: flex;
     flex-direction: column;
     height: 450px;
@@ -20,7 +20,7 @@
 
 .BakeryItemsContainer {
     display: flex;
-    column-gap: 20px;
+    column-gap: 25px;
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin-left: 10px;

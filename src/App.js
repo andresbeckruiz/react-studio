@@ -40,6 +40,11 @@ function App() {
     setTotalPrice(totalPrice + item.price)
   }, [cart, totalPrice])
 
+  const clearCart = () => {
+    setCart([])
+    setTotalPrice(0)
+  }
+
   return (
     <div className="App">
       <div className="LeftContainer">
@@ -53,7 +58,8 @@ function App() {
       </div>
       </div>
       <div className="RightContainer">
-        <h2>My Cart</h2>
+        <h1>My Cart</h1>
+        <button onClick={clearCart}> Clear cart</button>
         <h2> Total Price: ${totalPrice.toFixed(2)}</h2>
         {cart.map((item) => (
           <h3> {item.count}x {item.name}</h3>
